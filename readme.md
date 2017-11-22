@@ -14,21 +14,24 @@ iotedgectl setup --config-file agentconfig.json
 
 ### Module Config
 
-Open `config/moduleconfig.json` and use the `edgeconf` script found in `scripts/csharp/edgeconf` to apply that configuration to your device.
+Open `config/moduleconfig.json`, modify it to suit your needs, and use the `edgeconf` script found in `scripts/csharp/edgeconf` to apply that configuration to your device.
+
+
+### Module Config Apply Script
 
 Run the following from `scripts/csharp/edgeconf`
 
 ```
 dotnet restore
-dotnet build
+dotnet build -r win10-x64
 ```
 
-Usage:
+#### Script Usage
 ```
 edgeconf iothubowner-connection-string device-id config-file-path
 ```
 
 Example:
 ```
-edgeconf "connectionstring" device1 moduleconfig.json
+edgeconf "connection-string" device1 moduleconfig.json
 ```
