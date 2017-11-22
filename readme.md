@@ -6,13 +6,13 @@ This repo provides sample configuration files and scripts for Azure IoT Edge Run
 
 ### Runtime Config
 
-Open `config/agentconfig.json` and setup Azure IoT Edge Runtime with that file.
+Open `config/agentconfig.json`, modify it to suit your needs, and setup Azure IoT Edge Runtime with that file.
 
 ```
 iotedgectl setup --config-file agentconfig.json
 ```
 
-### Module Config
+### Module Configs
 
 Open `config/moduleconfig.json`, modify it to suit your needs, and use the `edgeconf` script found in `scripts/csharp/edgeconf` to apply that configuration to your device.
 
