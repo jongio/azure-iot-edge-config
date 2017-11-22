@@ -1,0 +1,40 @@
+{
+  "deployment": {
+    "docker": {
+      "edgeRuntimeImage": "[[enter ACR URI]]/azureiotedge-agent:1.0-preview", 
+      "loggingOptions": {
+        "log-driver": "json-file", 
+        "log-opts": {
+          "max-size": "10m"
+        }
+      }, 
+      "registries": [
+        {
+          "address": "[[enter ACR URI]]", 
+          "password": "[[enter ACR password]]", 
+          "username": "[[enter ACR username]]"
+        }
+      ], 
+      "uri": "unix:///var/run/docker.sock"
+    }, 
+    "type": "docker"
+  }, 
+  "deviceConnectionString": "[[enter device connection string]]", 
+  "homeDir": "C:\\ProgramData\\azure-iot-edge", 
+  "hostName": "[[enter hostname]]", 
+  "logLevel": "info", 
+  "schemaVersion": "1", 
+  "security": {
+    "certificates": {
+      "option": "selfSigned", 
+      "preInstalled": {
+        "deviceCACertificateFilePath": "", 
+        "serverCertificateFilePath": ""
+      }, 
+      "selfSigned": {
+        "forceNoPasswords": false, 
+        "forceRegenerate": false
+      }
+    }
+  }
+}
