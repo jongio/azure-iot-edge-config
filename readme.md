@@ -13,7 +13,7 @@ There are two main configuration files that you need to consider when developing
 The Azure IoT Edge Runtime is a Python script that runs on your edge device. It is responsible for pulling the module config from the cloud, pulling images, setting up routes, and running containers. When you setup the runtime, you have the option to pass in a config file, which is a json file that contains all the metadata needed to run your runtime, such as Azure Container Registry credentials, Docker settings and a custom runtime image location. 
 
 **References**
- - [Sample Runtime Config](https://github.com/jonbgallant/azure-iot-edge-config/blob/master/config/agentconfig.json)
+ - [Sample Runtime Config](https://github.com/jonbgallant/azure-iot-edge-config/blob/master/config/runtimeconfig.json)
  - [Runtime Docs (iotedgectl)](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)      
 
 ### Module Configuration
@@ -86,10 +86,10 @@ Here's what you have to do to use these custom configuration files.
 
 ### Runtime Config
 
-Open `config/agentconfig.json`, modify it to suit your needs, and setup Azure IoT Edge Runtime with that file.
+Open `config/runtimeconfig.json`, modify it to suit your needs, and setup Azure IoT Edge Runtime with that file.
 
 ```
-iotedgectl setup --config-file agentconfig.json
+iotedgectl setup --config-file runtimeconfig.json
 ```
 
 ### Module Configs
