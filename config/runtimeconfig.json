@@ -32,7 +32,7 @@
         "serverCertificateFilePath": ""
       }, 
       "selfSigned": {
-        "forceNoPasswords": false, 
+        "forceNoPasswords": true, 
         "forceRegenerate": false
       }
     }
