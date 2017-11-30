@@ -62,19 +62,20 @@ The Edge Runtime supports a module configuration that is applied via the cloud a
     If you use the SDK, then you need to apply each module content individually, here's a snippet on what that looks like:
 
     ```
-    dynamic config = JsonConvert.DeserializeObject(File.ReadAllText(filePath));
+    public static Task Main() {
+        dynamic config = JsonConvert.DeserializeObject(File.ReadAllText(filePath));
 
-    var cc = new ConfigurationContent() { ModuleContent = new Dictionary<string, TwinContent>() };
-    foreach (var module in config.moduleContent)
-    {
-        var twinContent = new TwinContent();
-        twinContent.TargetContent = new TwinCollection(module.Value["properties.desired"].ToString());
-        cc.ModuleContent[module.Name.ToString()] = twinContent;
+        var cc = new ConfigurationContent() { ModuleContent = new Dictionary<string, TwinContent>() };
+        foreach (var module in config.moduleContent)
+        {
+            var twinContent = new TwinContent();
+            twinContent.TargetContent = new TwinCollection(module.Value["properties.desired"].ToString());
+            cc.ModuleContent[module.Name.ToString()] = twinContent;
+        }
+
+        var rm = RegistryManager.CreateFromConnectionString(connectionString);
+        await rm.ApplyConfigurationContentOnDeviceAsync(deviceId, cc); 
     }
-
-    var rm = RegistryManager.CreateFromConnectionString(connectionString);
-    Task.Run(async () => { await rm.ApplyConfigurationContentOnDeviceAsync(deviceId, cc); }).GetAwaiter().GetResult();
-
     ```
     #### CLI
 
